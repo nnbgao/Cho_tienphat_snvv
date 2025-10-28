@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎂 Happy Birthday Phát 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="background"></div>
+
+  <div class="content">
+    <h1>🎉 Chúc Mừng Sinh Nhật Phát 🎉</h1>
+    <p class="subtitle">Chúc may mắn với Miki 💞</p>
+
+    <button id="openLetter">📩 Mở thư</button>
+  </div>
+
+  <!-- Popup thư chúc -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2>Gửi đến Phát 🎁</h2>
+      <p>Chúc bạn may mắn với Miki, luôn vui vẻ và đạt được điều mình mong muốn 💖</p>
+      <button id="closeLetter">Đóng thư</button>
+    </div>
+  </div>
+
+  <!-- Nhạc nền -->
+  <audio id="bgAudio" loop autoplay>
+    <!-- 🔸 Thay link MP3 tại đây nếu có file thật -->
+    <source src="./T9-Thien-Ngu-Nguyen.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="playMusic" class="music-btn">🎵 Bật nhạc</button>
+
+  <script>
+    // Hiệu ứng mở thư
+    const openLetter = document.getElementById("openLetter");
+    const closeLetter = document.getElementById("closeLetter");
+    const popup = document.getElementById("popup");
+    const music = document.getElementById("bgAudio");
+    const playMusicBtn = document.getElementById("playMusic");
+
+    openLetter.addEventListener("click", () => {
+      popup.style.display = "flex";
+    });
+
+    closeLetter.addEventListener("click", () => {
+      popup.style.display = "none";
+    });
+
+    // Tự động phát nhạc, nếu bị chặn thì hiện nút
+    document.addEventListener("DOMContentLoaded", () => {
+      const playPromise = music.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          playMusicBtn.style.display = "block";
+        });
+      }
+    });
+
+    playMusicBtn.addEventListener("click", () => {
+      music.play();
+      playMusicBtn.style.display = "none";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+/* ================================
+   🌸 Thiết kế giao diện Sinh nhật Phát
+   Màu nền #eee6db, chữ #5d3d19, nhấn #b29881
+   ================================ */
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #b29881;
+  color: #5d3d19;
+  overflow: hidden;
+}
+
+/* Hiệu ứng nền nhẹ */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #eee6db 0%, #b29881 100%);
+  z-index: -1;
+  animation: pulse 6s infinite alternate;
+}
+
+@keyframes pulse {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.1); }
+}
+
+/* Khung nội dung chính */
+.content {
+  text-align: center;
+  margin-top: 20vh;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+}
+
+/* Nút mở thư */
+button {
+  background-color: #eee6db;
+  border: 2px solid #5d3d19;
+  color: #5d3d19;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #5d3d19;
+  color: #eee6db;
+}
+
+/* Popup thư */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #eee6db;
+  color: #5d3d19;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: zoomIn 0.5s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Nút bật nhạc */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: none;
+  background-color: #5d3d19;
+  color: #eee6db;
+}
